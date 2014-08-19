@@ -1,0 +1,4 @@
+EEG flat 100
+EOG ppa 200 -100 500
+EOG zthr 4 -100 500 yes-interactive
+EEG zthr 20 -100 500 no-freq yes-interactive
