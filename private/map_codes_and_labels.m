@@ -41,6 +41,9 @@ for i=1:n
        error('Program cannot proceed');
     end
     
+    raw_codes = [EEG.event.type];
+    [EEG.event.type] = deal(0);
+    
     %% Map codes and labels
     logg.write('\nMapping codes and labels (displaying info for inputs)\n');
     % Add label field
@@ -48,7 +51,7 @@ for i=1:n
     [EEG.event.label]   = deal('');
     for j=1:size(codes, 1)
         % Find input codes in EEGLAB event data structure
-        search = [EEG.event.type] == codes(j,1); 
+        search = raw_codes == codes(j,1);
         if any(search)
             logg.write('\tFound %d events for %s trials (code %d)\n', ...
                         sum(search), labels{j,1}, codes(j,1));
