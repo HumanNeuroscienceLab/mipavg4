@@ -15,4 +15,16 @@ To start off, maybe I'll list MRJ's aims for commits in the near future:
 * Add in ability to regress out HEOG/VEOG (or potentially an arbitrary set of other channels) from all other channels' data to 
   remove any residual influence from small eye movements.
 
+# Known Issues
 
+## supergui
+
+On some machines, you might see this error: "Error using supergui (line 126) supergui error: argument 'fig' must be numeric".
+
+According to this [website](http://sccn.ucsd.edu/pipermail/eeglablist/2014/008851.html) you just need to change line 126 in supergui from
+
+'fig'       'real'       []      0;
+
+to 
+
+'fig'       ''       []      0;
